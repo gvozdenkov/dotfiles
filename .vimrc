@@ -85,9 +85,9 @@ endif
 augroup MyCustomColors
   autocmd!
   " Force the background to gray (#1c1c1c) whenever a colorscheme loads
-  autocmd ColorScheme * highlight Normal guibg=#171717 ctermbg=234
+  autocmd ColorScheme * highlight Normal guibg=#181818 ctermbg=234
   " Optional: Match the empty space (NonText) to the same color
-  autocmd ColorScheme * highlight NonText guibg=#171717 ctermbg=234
+  autocmd ColorScheme * highlight NonText guibg=#181818 ctermbg=234
 augroup END
 
 " ALWAYS set a colorscheme when using termguicolors. 
