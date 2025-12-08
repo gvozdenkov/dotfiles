@@ -43,4 +43,7 @@ export LD_LIBRARY_PATH=\$HOME/local/lib:\$LD_LIBRARY_PATH
 export MANPATH=\$HOME/local/share/man:\$MANPATH
 EOF
 
+# setup autocomplition
+curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ~/.bash_completion
+
 source ~/.bashrc
