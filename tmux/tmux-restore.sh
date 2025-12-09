@@ -22,8 +22,8 @@ while IFS=$'\t' read -r session win_idx win_name layout; do
 done < "${LAYOUT_FILE}"
 
 # ---------- 2) Create sessions/windows and panes ----------
-# PANES_FILE: session  win_idx  win_name  pane_idx  pane_path  pane_cmd
-while IFS=$'\t' read -r session win_idx win_name pane_idx pane_path pane_cmd; do
+# PANES_FILE: session  win_idx  win_name  pane_idx  pane_path  full_cmd
+while IFS=$'\t' read -r session win_idx win_name pane_idx pane_path full_cmd; do
   win_key="${session}:${win_idx}"
   pane_key="${win_key}:${pane_idx}"
 
@@ -35,8 +35,8 @@ while IFS=$'\t' read -r session win_idx win_name pane_idx pane_path pane_cmd; do
     CREATED_PANES["${win_key}:1"]=1
 
     # First pane in first window (pane 1)
-    if [ "${pane_idx}" -eq 1 ] && [ -n "${pane_cmd}" ]; then
-      tmux send-keys -t "${session}:1.1" "${pane_cmd}" C-m
+    if [ "${pane_idx}" -eq 1 ] && [ -n "${full_cmd}" ]; then
+      tmux send-keys -t "${session}:1.1" "${full_cmd}" C-m
     fi
     continue
   fi
@@ -49,8 +49,8 @@ while IFS=$'\t' read -r session win_idx win_name pane_idx pane_path pane_cmd; do
     CREATED_PANES["${win_key}:1"]=1
 
     # First pane in this window
-    if [ "${pane_idx}" -eq 1 ] && [ -n "${pane_cmd}" ]; then
-      tmux send-keys -t "${session}:${win_idx}.1" "${pane_cmd}" C-m
+    if [ "${pane_idx}" -eq 1 ] && [ -n "${full_cmd}" ]; then
+      tmux send-keys -t "${session}:${win_idx}.1" "${full_cmd}" C-m
     fi
     continue
   fi
@@ -62,8 +62,8 @@ while IFS=$'\t' read -r session win_idx win_name pane_idx pane_path pane_cmd; do
     tmux split-window -t "${session}:${win_idx}." -c "${pane_path}"
 
     # New pane is the most recent ('.')
-    if [ -n "${pane_cmd}" ]; then
-      tmux send-keys -t "${session}:${win_idx}." "${pane_cmd}" C-m
+    if [ -n "${full_cmd}" ]; then
+      tmux send-keys -t "${session}:${win_idx}." "${full_cmd}" C-m
     fi
 
     CREATED_PANES["${pane_key}"]=1
