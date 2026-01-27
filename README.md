@@ -1,3 +1,3 @@
-# Configs
+# Dotfiles
 
-For different programs
+run `install.sh` to setup dotfiles

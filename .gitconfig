@@ -1,0 +1,16 @@
+[user]
+	name = arty gvozdenkov
+	email = gvozdenkov@gmail.com
+	signingkey = /home/arty/.ssh/arty.pub
+[core]
+	editor = code --wait
+[init]
+	defaultBranch = main
+[alias]
+	ls = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(brightblack)/ %an%C(reset)%C(auto)%d%C(reset)' -15
+	lsa = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(brightblack)/ %an%C(reset)%C(auto)%d%C(reset)' --all
+	cm = commit -m
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
