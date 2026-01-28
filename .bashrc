@@ -147,7 +147,7 @@ if command -v kubectl &> /dev/null; then
 fi
 
 if command -v terraform &> /dev/null; then
-    complete -C /usr/bin/terraform terraform
+    complete -C /usr/local/bin/terraform terraform
 fi
 
 export PATH=$HOME/local/bin:$PATH
