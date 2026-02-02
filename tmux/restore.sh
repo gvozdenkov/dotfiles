@@ -3,7 +3,8 @@
 
 set -euo pipefail
 
-BASE_SNAPSHOT="$(pwd)/.session"
+TMUX_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BASE_SNAPSHOT="${TMUX_DIR}/.session"
 LAYOUT_FILE="${BASE_SNAPSHOT}.layouts"
 PANES_FILE="${BASE_SNAPSHOT}.panes"
 

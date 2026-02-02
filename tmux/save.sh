@@ -3,7 +3,8 @@
 
 set -euo pipefail
 
-SNAPSHOT_FILE="$(pwd)/.session"
+TMUX_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SNAPSHOT_FILE="${TMUX_DIR}/.session"
 d=$'\t'
 
 # 1) Save window layouts (per window)
