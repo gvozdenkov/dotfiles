@@ -5,6 +5,9 @@ export DEBIAN_FRONTEND=noninteractive
 # 1. Get Location
 TMUX_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# install dev deps
+sudo apt update -y && sudo apt install -y build-essential libevent-dev ncurses-dev bison pkg-config wget libssl-dev curl python-is-python3
+
 echo ">>> Installing Tmux... (Source: $TMUX_DIR)"
 
 # 2. Temp Dir Build
@@ -28,7 +31,7 @@ pushd "$TEMP_DIR" > /dev/null
     cd ncurses-*/
     ./configure --prefix=$HOME/local --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=$HOME/local/lib/pkgconfig \
         --without-debug --without-ada --without-manpages --without-progs --without-tests > /dev/null
-    make -j$(nproc) > /dev/null && make install > /dev/null
+    make -j$(nproc) && make install
     cd ..
 
     # SYSTEM DEPS
