@@ -46,6 +46,9 @@ set incsearch
 " Ignore capital letters during search
 set ignorecase
 
+" Setup insert -> normal mode to jj
+inoremap jj <Esc>
+
 " Override the ignorecase option if searchig for capital letters
 set smartcase
 
