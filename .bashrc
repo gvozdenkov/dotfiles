@@ -105,9 +105,9 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    source /usr/share/bash-completion/bash_completion
+    . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
+    . /etc/bash_completion
   fi
 fi
 
@@ -136,6 +136,7 @@ if [ -f '/home/arty/yandex-cloud/path.bash.inc' ]; then source '/home/arty/yande
 # The next line enables shell command completion for yc.
 if [ -f '/home/arty/yandex-cloud/completion.bash.inc' ]; then source '/home/arty/yandex-cloud/completion.bash.inc'; fi
 
+# kubectl autocompletion
 if command -v kubectl &> /dev/null; then
     # 1. Load the completion code for bash
     source <(kubectl completion bash)
@@ -147,10 +148,12 @@ if command -v kubectl &> /dev/null; then
     complete -o default -F __start_kubectl k
 fi
 
+# terraform autocompletion
 if command -v terraform &> /dev/null; then
     complete -C /usr/local/bin/terraform terraform
 fi
 
+# Ansible autocompletion
 if command -v register-python-argcomplete >/dev/null 2>&1; then
   eval "$(register-python-argcomplete ansible)"
   eval "$(register-python-argcomplete ansible-playbook)"
@@ -158,13 +161,15 @@ if command -v register-python-argcomplete >/dev/null 2>&1; then
   eval "$(register-python-argcomplete terraform)"
 fi
 
+# Helm autocompletion
 if command -v helm >/dev/null 2>&1; then
   source <(helm completion bash)
 fi
+
+# Devpod autocomplition
+command -v devpod &> /dev/null && source <(devpod completion bash)
 
 export PATH=$HOME/local/bin:$PATH
 # for tmux
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export MANPATH=$HOME/local/share/man:$MANPATH
-
-source .devpod_completion.sh
