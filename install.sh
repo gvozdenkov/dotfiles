@@ -9,6 +9,7 @@ ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTFILES_DIR/.terraformrc" "$HOME/.terraformrc"
+ln -sf "$DOTFILES_DIR/.devpod_completion.sh" "$HOME/.devpod_completion.sh"
 
 echo ">>> Dotfiles Installation Complete!"
 
