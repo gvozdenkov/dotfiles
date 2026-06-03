@@ -105,11 +105,12 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
 fi
+
 true
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -150,8 +151,20 @@ if command -v terraform &> /dev/null; then
     complete -C /usr/local/bin/terraform terraform
 fi
 
+if command -v register-python-argcomplete >/dev/null 2>&1; then
+  eval "$(register-python-argcomplete ansible)"
+  eval "$(register-python-argcomplete ansible-playbook)"
+  eval "$(register-python-argcomplete ansible-galaxy)"
+  eval "$(register-python-argcomplete terraform)"
+fi
+
+if command -v helm >/dev/null 2>&1; then
+  source <(helm completion bash)
+fi
+
 export PATH=$HOME/local/bin:$PATH
 # for tmux
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
 export MANPATH=$HOME/local/share/man:$MANPATH
 
+source .devpod_completion.sh
