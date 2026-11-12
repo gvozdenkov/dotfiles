@@ -1,10 +1,20 @@
-demetra	1	deploy-prod	1	/home/arty/brick/demetra	
-demetra	1	deploy-prod	2	/home/arty/brick/demetra	
-dodo	1	prod	1	/home/arty	
-dodo	1	prod	2	/home/arty	
-dodo	2	vscode	1	/home/arty	
-dodo	2	vscode	2	/home/arty	
-homelab	1	infra	1	/home/arty/devops-home-lab	
-homelab	1	infra	2	/home/arty/devops-home-lab	
-homelab	2	blog	1	/home/arty/devops-blog	
-homelab	2	blog	2	/home/arty/devops-blog	
+home	1	bash	1	/home/arty	
+home	1	bash	2	/home/arty	
+home	1	bash	3	/home/arty	
+home	2	bash	1	/home/arty	
+pandora	1	common	1	/home/arty/mes-business-automation	bash ../dotfiles/tmux/save.sh
+pandora	2	ilb-prod	1	/home/arty/mes-business-automation	ssh ilb1.pandora.pri
+pandora	2	ilb-prod	2	/home/arty/mes-business-automation	ssh ilb2.pandora.pri
+pandora	3	ilb-dev	1	/home/arty/mes-business-automation	ssh ilb1.pandora-ad.develop
+pandora	3	ilb-dev	2	/home/arty/mes-business-automation	ssh ilb2.pandora-ad.develop
+pandora	4	mes-prod-swarm	1	/home/arty/mes-business-automation	ssh mes1-n1.pandora.pri
+pandora	4	mes-prod-swarm	2	/home/arty/mes-business-automation	ssh mes1-n2.pandora.pri
+pandora	4	mes-prod-swarm	3	/home/arty/mes-business-automation	ssh mes1-n3.pandora.pri
+pandora	5	it-internal-swarm	1	/home/arty/mes-business-automation	ssh docker1-n1.pandora.pri
+pandora	5	it-internal-swarm	2	/home/arty/mes-business-automation	ssh docker1-n2.pandora.pri
+pandora	5	it-internal-swarm	3	/home/arty/mes-business-automation	ssh docker1-n3.pandora.pri
+pandora	6	mes-dev-swarm	1	/home/arty/mes-business-automation	ssh mes-swarm1.pandora-ad.develop
+pandora	6	mes-dev-swarm	2	/home/arty/mes-business-automation	ssh mes-swarm2.pandora-ad.develop
+pandora	6	mes-dev-swarm	3	/home/arty/mes-business-automation	ssh mes-swarm3.pandora-ad.develop
+pandora	7	mes-old-prod	1	/home/arty/mes-business-automation	ssh factory-node1.pandora.pri
+pandora	8	mes-old-dev	1	/home/arty/mes-business-automation	ssh mes-node1.pandora-ad.develop
